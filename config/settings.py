@@ -34,10 +34,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['http://127.0.0.1/',
-                 'http://localhost:8000/',
+ALLOWED_HOSTS = ['http://127.0.0.1',
+                 'http://localhost:8000',
                  '127.0.0.1',
-                 'https://jobmart-bf68e992b374.herokuapp.com/']
+                 'https://jobmart-bf68e992b374.herokuapp.com']
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net',
                         'https://*.herokuapp.com']
