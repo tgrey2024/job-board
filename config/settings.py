@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import sys
+# import sys
 
 import dj_database_url
 if os.path.isfile('env.py'):
@@ -52,11 +52,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'jobboard',
+    'django_summernote',
+    'profiles',
 
 ]
 
@@ -130,7 +134,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
