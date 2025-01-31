@@ -32,7 +32,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['http://127.0.0.1',
                  'http://localhost:8000',
@@ -134,6 +134,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+# ACCOUNT_FORMS = {
+#     'signup': 'profiles.forms.CustomSignupForm',
+# }
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 

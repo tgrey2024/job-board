@@ -2,19 +2,17 @@ from django.contrib import admin
 from .models import ApplicantProfile, EmployerProfile
 from django_summernote.admin import SummernoteModelAdmin
 
-admin.site.register(ApplicantProfile)
 
-admin.site.register(EmployerProfile)
-# @admin.register(ApplicantProfile)
-# class ApplicantProfileAdmin(SummernoteModelAdmin):
-#     list_display = ('title', 'content')
-#     search_fields = ['title']
-#     summernote_fields = ('content',)
+@admin.register(ApplicantProfile)
+class ApplicantProfileAdmin(SummernoteModelAdmin):
+    list_display = ('title', 'content')
+    search_fields = ['title']
+    summernote_fields = ('content',)
 
 
-# @admin.register(EmployerProfile)
-# class EmployerProfileAdmin(SummernoteModelAdmin):
+@admin.register(EmployerProfile)
+class EmployerProfileAdmin(SummernoteModelAdmin):
 
-#     list_display = ('title', 'content')
-#     search_fields = ['title']
-#     summernote_fields = ('content',)
+    list_display = ('title', 'content')
+    search_fields = ['title']
+    summernote_fields = ('content',)
