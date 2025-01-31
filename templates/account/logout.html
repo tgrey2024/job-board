@@ -23,6 +23,7 @@
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
                 <button class="btn btn-signup right" type="submit">{% trans 'Sign Out' %}</button>
+                <a class="btn btn-secondary" href="javascript:history.back()" aria-label="Cancel Sign Out and go back a page">Cancel</a>
             </form>
         </div>
     </div>
