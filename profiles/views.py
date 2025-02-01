@@ -1,4 +1,5 @@
 from django.views.generic import ListView, DetailView
+from django.shortcuts import get_object_or_404, redirect
 from .models import Employer, Applicant
 
 
@@ -8,14 +9,17 @@ class EmployerListView(ListView):
     context_object_name = 'employers'
 
 
-class EmployerProfiles(DetailView):
+class Profiles(DetailView):
     model = Employer
     template_name = 'profiles/employer_profile.html'
     context_object_name = 'employer'
 
     def get_object(self):
         user_id = self.kwargs.get('user_id')
-        return Employer.objects.get(employer__id=user_id)
+        try:
+            return Employer.objects.get(employer__id=user_id)
+        except Employer.DoesNotExist:
+            return redirect('applicant_profile', user_id=user_id)
 
 
 class ApplicantListView(ListView):
@@ -31,4 +35,4 @@ class ApplicantProfile(DetailView):
 
     def get_object(self):
         user_id = self.kwargs.get('user_id')
-        return Applicant.objects.get(applicant__id=user_id)
+        return get_object_or_404(Applicant, applicant__id=user_id)
