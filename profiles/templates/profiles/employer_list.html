@@ -1,0 +1,11 @@
+<ul>
+    {% if employers %}
+        {% for employer in employers %}
+            <li>
+                <a href="{% url 'profile' user_id=employer.employer.id %}">{{ employer.company_name }}</a>
+            </li>
+        {% endfor %}
+    {% else %}
+        <li>No employers found.</li>
+    {% endif %}
+</ul>

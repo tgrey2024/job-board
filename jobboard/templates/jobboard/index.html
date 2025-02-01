@@ -8,12 +8,8 @@
     <div class="container ms-auto">
         <div class="text-start">
             <h1>Next Stop: Your Dream Job</h1>
-            <p class="lead"></p>
-            {% if not user.is_authenticated %}
+            <!-- <p class="lead"></p>-->
             <a href="{% url 'account_signup' %}" class="btn btn-info" aria-label="Go to the Signup page">Sign Up <i class="fa-solid fa-user-plus"></i></a>
-            {% elif user.is_authenticated %}
-            <a href="{% url 'my_scrapbook_list' %}" class="btn btn-info scrapbook-link" aria-label="Go to My Scrapbooks page">My Scrapbooks <i class="fa-solid fa-book-open"></i></a>
-            {% endif %}
         </div>
     </div>
 </section>
@@ -76,7 +72,7 @@
     </div>
 </section>
 <!-- Employers: Applicants List section -->
-<section id="employers" class="employers py-3">
+<section id="applicants" class="applicants py-3">
     <div class="container">
         <div class="row">
     
@@ -84,6 +80,9 @@
             <div class="col-12 mt-3 left">
                 <div class="row">
                     <h3>Star Candidates</h3>
+                    <div class="col-md-4">
+                        {% include "profiles/applicant_list.html" %}
+                    </div>
                     {% for post in post_list %}
                     <div class="col-md-4">
                         <div class="card mb-4">
@@ -133,7 +132,17 @@
         {% endif %}
     </div>
 </section>
-
+<!-- Employers: Applicants List section -->
+<section id="employers" class="employers py-3">
+    <div class="container">
+        <div class="row">
+            <h3>Top Employers</h3>
+            <div class="col-md-4">       
+                {% include "profiles/employer_list.html" %}
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Testimonials -->
 <section id="testimonials" class="testimonials py-3">
     <div class="container">

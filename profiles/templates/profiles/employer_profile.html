@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Company Profile</h2>
+    <div class="row">
+        <div class="col-4">
+            <img src="{{ employer.logo.url }}" alt="{{ employer.company_name }} logo" width="75%">
+        </div>
+        <div class="col-8">
+            <h3>{{ employer.company_name }}</h3>
+            {% if employer.content %}
+            <!-- Use safe filter to render html correctly -->
+                <p>{{ employer.content | safe }}</p>
+            {% endif %}
+            {% if employer.site_url %}
+                <p>Website: <a href="#">{{ employer.site_url }}</a></p>
+            {% endif %}
+            <p class="address-text">Address: {% if employer.address1 %}{{ employer.address1 }},{% endif %}</p>
+            {% if employer.address2 %}
+                <p class="address-text">{{ employer.address2 }},</p>
+            {% endif %}
+            {% if employer.city %}
+                <p class="address-text">{{ employer.city }},</p>
+            {% endif %}
+            <p class="address-text">{{ employer.postcode }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-right">
+          <!-- Updated on field goes in here -->
+    
+          <p class="text-end"><em>Updated on: {{ employer.updated_on }}</em></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
