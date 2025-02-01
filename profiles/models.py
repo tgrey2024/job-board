@@ -17,7 +17,7 @@ class Employer(models.Model):
     employer = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.employer.username
 
 
 class Applicant(models.Model):
@@ -37,4 +37,4 @@ class Applicant(models.Model):
     applicant = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.applicant.username

@@ -86,6 +86,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #094074;
 }
 
+#employers a {
+    color: #ffffff;
+}
+
 /* Testimonials */
 .testimonials {
     background-color: #094074;
@@ -246,4 +250,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .approval {
     color: rgb(222, 146, 168);
+}
+
+/* Profiles */
+.address-text {
+    display: inline;
 }

@@ -10,6 +10,7 @@ class EmployerAdmin(SummernoteModelAdmin):
     search_fields = ['company_name']
     summernote_fields = ('content',)
 
+
 @admin.register(Applicant)
 class ApplicantAdmin(SummernoteModelAdmin):
     list_display = ('firstname', 'lastname', 'role', 'updated_on')

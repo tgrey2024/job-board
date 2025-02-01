@@ -72,7 +72,7 @@
     </div>
 </section>
 <!-- Employers: Applicants List section -->
-<section id="employers" class="employers py-3">
+<section id="applicants" class="applicants py-3">
     <div class="container">
         <div class="row">
     
@@ -129,7 +129,17 @@
         {% endif %}
     </div>
 </section>
-
+<!-- Employers: Applicants List section -->
+<section id="employers" class="employers py-3">
+    <div class="container">
+        <div class="row">
+            <h3>Top Employers</h3>
+            <div class="col-md-4">       
+                {% include "profiles/employer_list.html" %}
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Testimonials -->
 <section id="testimonials" class="testimonials py-3">
     <div class="container">
