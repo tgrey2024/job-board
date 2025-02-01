@@ -49,18 +49,18 @@
                             href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == about_url %}active" aria-current="page{% endif %}"
+                        <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}"
                             href="{% url 'home' %}#employers">Applicants</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == about_url %}active" aria-current="page{% endif %}"
+                        <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}"
                             href="{% url 'home' %}#job-posts">Employers</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == about_url %}active" aria-current="page{% endif %}"
-                            href="#">About</a>
-                    </li>
                     {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == profile_url %}active" aria-current="page{% endif %}"
+                            href="{% url 'employer_profile' user_id=user.id %}">My Profile</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}"
                             href="{% url 'account_logout' %}">Logout</a>
@@ -76,9 +76,6 @@
                     </li>
                     {% endif %}
                 </ul>
-                <!-- <span class="navbar-text text-muted">
-                    Next Stop: Your Dream Job
-                </span> -->
             </div>
         </div>
     </nav>

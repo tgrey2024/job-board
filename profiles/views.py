@@ -8,7 +8,7 @@ class EmployerListView(ListView):
     context_object_name = 'employers'
 
 
-class Profiles(DetailView):
+class EmployerProfiles(DetailView):
     model = Employer
     template_name = 'profiles/employer_profile.html'
     context_object_name = 'employer'
@@ -17,7 +17,7 @@ class Profiles(DetailView):
         user_id = self.kwargs.get('user_id')
         return Employer.objects.get(employer__id=user_id)
 
-   
+
 class ApplicantListView(ListView):
     model = Applicant
     template_name = 'profiles/applicant_list.html'
