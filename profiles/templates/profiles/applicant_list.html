@@ -1,0 +1,11 @@
+<ul>
+    {% if applicants %}
+        {% for applicant in applicants %}
+            <li>
+                <a href="{% url 'applicant_profile' user_id=applicant.applicant.id %}">{{ applicant.firstname }} {{ applicant.lastname }}</a>
+            </li>
+        {% endfor %}
+    {% else %}
+        <li>No applicants found.</li>
+    {% endif %}
+</ul>

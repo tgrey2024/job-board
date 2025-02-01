@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Applicant Profile</h2>
+    <div class="row">
+        <div class="col-4">
+            <img src="{{ applicant.profilepic.url }}" alt="{{ applicant.firstname }} {{ applicant.lastname }} profile picture" width="75%">
+        </div>
+        <div class="col-8">
+            <h3>{{ applicant.firstname }} {{ applicant.lastname }}</h3>
+            {% if applicant.intro %}
+                <p>{{ applicant.intro | safe }}</p>
+            {% endif %}
+            {% if applicant.skills %}
+                <p>Skills: {{ applicant.skills | safe}}</p>
+            {% endif %}
+            {% if applicant.experience %}
+                <p>Experience: {{ applicant.experience | safe }}</p>
+            {% endif %}
+            <p class="address-text">Address: {% if applicant.address1 %}{{ applicant.address1 }},{% endif %}</p>
+            {% if applicant.address2 %}
+                <p class="address-text">{{ applicant.address2 }},</p>
+            {% endif %}
+            {% if applicant.city %}
+                <p class="address-text">{{ applicant.city }},</p>
+            {% endif %}
+            <p class="address-text">{{ applicant.postcode }}</p>
+            <p class="text-end"><em>Updated on: {{ applicant.updated_on }}</em></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
