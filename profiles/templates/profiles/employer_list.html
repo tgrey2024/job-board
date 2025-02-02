@@ -2,7 +2,7 @@
     {% if employers %}
         {% for employer in employers %}
             <li>
-                <a href="{% url 'profile' user_id=employer.employer.id %}">{{ employer.company_name }}</a>
+                <a href="{% url 'employer_profile' user_id=employer.employer.id %}">{{ employer.company_name }}</a>
             </li>
         {% endfor %}
     {% else %}
