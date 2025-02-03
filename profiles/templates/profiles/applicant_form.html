@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <h2>{% if action == 'create' %}Create Applicant Profile{% else %}Update Applicant Profile{% endif %}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary my-2">{% if action == 'create' %}Create{% else %}Update{% endif %}</button>
+    </form>
+</div>
+{% endblock %}

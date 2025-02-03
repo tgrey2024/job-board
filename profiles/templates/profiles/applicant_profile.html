@@ -28,5 +28,11 @@
             <p class="text-end"><em>Updated on: {{ applicant.updated_on }}</em></p>
         </div>
     </div>
+    <div class="row">
+        <div class="col text-right p-3">
+            <a href="{% url 'applicant_update' pk=applicant.id %}" class="btn btn-primary">Edit</a>
+            <a class="btn btn-secondary" href="javascript:history.back()" aria-label="Cancel Edit and go back a page">Cancel</a>
+        </div>
+    </div>
 </div>
 {% endblock %}
