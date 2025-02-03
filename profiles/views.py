@@ -38,7 +38,7 @@ class ApplicantProfile(DetailView):
 
     def get_object(self):
         user_id = self.kwargs.get('user_id')
-        return Applicant.objects.get(applicant__id=user_id)
+        return Applicant.objects.get(user__id=user_id)
 
 
 class ApplicantCreateView(CreateView):
