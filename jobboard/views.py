@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 from profiles.models import Employer, Applicant
-
+from .models import Job
 
 class HomePage(TemplateView):
     """
@@ -13,4 +13,11 @@ class HomePage(TemplateView):
         context = super().get_context_data(**kwargs)
         context['employers'] = Employer.objects.all()
         context['applicants'] = Applicant.objects.all()
+        context['jobs'] = Job.objects.all()
         return context
+
+
+class JobDetailView(DetailView):
+    model = Job
+    template_name = 'jobboard/job_detail.html'
+    context_object_name = 'job'
