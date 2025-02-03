@@ -50,11 +50,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}"
-                            href="{% url 'home' %}#employers">Applicants</a>
+                            href="{% url 'home' %}#job-posts">Jobs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}"
-                            href="{% url 'home' %}#job-posts">Employers</a>
+                            href="{% url 'home' %}#applicants">Applicants</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
