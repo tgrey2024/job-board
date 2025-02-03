@@ -53,7 +53,7 @@ class ApplicantCreateView(CreateView):
         return context
 
     def get_success_url(self):
-        return reverse_lazy('profile', kwargs={'user_id': self.object.applicant.id})
+        return reverse_lazy('profile', kwargs={'user_id': self.object.user.id})
 
 
 class ApplicantUpdateView(UpdateView):
@@ -68,4 +68,4 @@ class ApplicantUpdateView(UpdateView):
         return context
 
     def get_success_url(self):
-        return reverse_lazy('profile', kwargs={'user_id': self.object.applicant.id})
+        return reverse_lazy('profile', kwargs={'user_id': self.object.user.id})
