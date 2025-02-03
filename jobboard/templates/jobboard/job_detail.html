@@ -2,11 +2,14 @@
 {% block content %}
 <div class="container">
     <h2>{{ job.title }}</h2>
-    <p>{{ job.description | safe}}</p>
+    <p>{{ job.description | safe }}</p>
     <p><strong>Location:</strong> {{ job.location }}</p>
     <p><strong>Salary:</strong> £{{ job.salary }}</p>
     <p><strong>Posted on:</strong> {{ job.created_on }}</p>
     <p><strong>Last updated:</strong> {{ job.updated_on }}</p>
     <a class="btn btn-secondary" href="javascript:history.back()" aria-label="Go back to the previous page">Back</a>
+    {% if user.is_authenticated %}
+    <a class="btn btn-primary" href="{% url 'job_apply' job_id=job.pk %}">Apply</a>
+    {% endif %}
 </div>
 {% endblock %}

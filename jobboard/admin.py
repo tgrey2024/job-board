@@ -10,6 +10,6 @@ class JobAdmin(SummernoteModelAdmin):
 
 @admin.register(JobApplication)
 class JobApplicationAdmin(SummernoteModelAdmin):
-    list_display = ('applicant', 'job', 'created_on')
-    search_fields = ['applicant__firstname', 'job__title']
+    list_display = ('job', 'created_on')
+    search_fields = ['job__title']
     summernote_fields = ('cover_letter',)
