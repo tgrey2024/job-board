@@ -1,4 +1,4 @@
-from .models import Applicant
+from .models import Applicant, Employer
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
@@ -19,3 +19,9 @@ def create_profiles(sender, instance, created, **kwargs):
             skills="",
             experience="",
         )
+
+@receiver(post_save, sender=Employer)
+def set_default_is_charity(sender, instance, created, **kwargs):
+    if instance.is_charity is None:
+        instance.is_charity = False
+        instance.save()
