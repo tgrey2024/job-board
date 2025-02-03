@@ -3,13 +3,12 @@ from .models import Applicant, Employer
 from django_summernote.admin import SummernoteModelAdmin
 
 
-@admin.register(Employer)
-class EmployerAdmin(SummernoteModelAdmin):
+# @admin.register(Employer)
+# class EmployerAdmin(admin.ModelAdmin):
 
-    list_display = ('company_name', 'content')
-    search_fields = ['company_name']
-    summernote_fields = ('content',)
-
+#     list_display = ('company_name', 'site_url', 'updated_on')
+#     search_fields = ['company_name']
+admin.site.register(Employer)
 
 @admin.register(Applicant)
 class ApplicantAdmin(SummernoteModelAdmin):

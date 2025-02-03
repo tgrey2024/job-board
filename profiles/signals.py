@@ -7,7 +7,7 @@ from django.db.models.signals import post_save
 def create_profiles(sender, instance, created, **kwargs):
     if created:
         Applicant.objects.create(
-            applicant=instance,
+            user=instance,
             firstname=instance.username,
             lastname="",
             role="",

@@ -27,6 +27,14 @@ class JobDetailView(DetailView):
     template_name = 'jobboard/job_detail.html'
     context_object_name = 'job'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            context['has_applied'] = JobApplication.objects.filter(applicant__user=self.request.user, job=self.object).exists()
+        else:
+            context['has_applied'] = False
+        return context
+
 class JobApplicationCreateView(CreateView):
     model = JobApplication
     form_class = JobApplicationForm

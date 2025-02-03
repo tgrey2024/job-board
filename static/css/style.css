@@ -7,6 +7,16 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
+a {
+    color: #094074;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #54b5ff;
+    text-decoration: none;
+}
+
 #logo {
     width: 1.6rem;
     margin-right: 0.5rem;
@@ -67,7 +77,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Job Posts section */
 #job-posts {
     background-color: #b8b8b8;
-    margin-bottom: 2rem;
     padding: 2rem 0;
 }
 
@@ -93,19 +102,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Applicants section */
 #applicants {
     background-color: #ebeaea;
-    margin-bottom: 2rem;
     padding: 2rem 0;
 }
 
-#applicants a {
-    color: #094074;
-    text-decoration: none;
-}
-
-#applicants a:hover {
-    color: #54b5ff;
-    text-decoration: none;
-}
 
 #job-posts h3 {
     color: #094074;
@@ -114,7 +113,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Employers section */
 #employers {
     background-color: #959595;
-    margin-bottom: 10rem;
     padding: 2rem 0;
 }
 
