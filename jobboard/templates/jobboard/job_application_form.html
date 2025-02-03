@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <h2>Apply for Job</h2>
+    <p>You are applying for the role: <strong>{{ job.title }}</strong> at <strong>{{ job.employer.company_name }}</strong></p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary my-2">Confirm Application</button>
+        <a class="btn btn-secondary" href="javascript:history.back()" aria-label="Cancel and go back to the previous page">Cancel</a>
+    </form>
+</div>
+{% endblock %}

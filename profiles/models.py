@@ -34,7 +34,7 @@ class Applicant(models.Model):
     postcode = models.CharField(max_length=200)
     skills = models.TextField(blank=True)
     experience = models.TextField(blank=True)
-    applicant = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.applicant.username
+        return self.user.username
