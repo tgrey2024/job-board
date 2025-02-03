@@ -67,8 +67,44 @@ h1, h2, h3, h4, h5, h6 {
 /* Job Posts section */
 #job-posts {
     background-color: #b8b8b8;
-    margin-bottom: 10rem;
+    margin-bottom: 2rem;
     padding: 2rem 0;
+}
+
+#job-posts h3 {
+    color: #094074;
+}
+
+/* Card hover effect */
+.card {
+    transition: .5s;
+}
+
+.card-body {
+    background-color: #ebeaea;
+    border-radius: 10px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Applicants section */
+#applicants {
+    background-color: #ebeaea;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+}
+
+#applicants a {
+    color: #094074;
+    text-decoration: none;
+}
+
+#applicants a:hover {
+    color: #54b5ff;
+    text-decoration: none;
 }
 
 #job-posts h3 {
