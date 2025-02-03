@@ -1,6 +1,9 @@
 from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404, redirect
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView
 from .models import Employer, Applicant
+from .forms import ApplicantForm
 
 
 class EmployerListView(ListView):
@@ -35,4 +38,34 @@ class ApplicantProfile(DetailView):
 
     def get_object(self):
         user_id = self.kwargs.get('user_id')
-        return get_object_or_404(Applicant, applicant__id=user_id)
+        return Applicant.objects.get(applicant__id=user_id)
+
+
+class ApplicantCreateView(CreateView):
+    model = Applicant
+    form_class = ApplicantForm
+    template_name = 'profiles/applicant_form.html'
+    success_url = reverse_lazy('profile')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['action'] = 'create'
+        return context
+
+    def get_success_url(self):
+        return reverse_lazy('profile', kwargs={'user_id': self.object.applicant.id})
+
+
+class ApplicantUpdateView(UpdateView):
+    model = Applicant
+    form_class = ApplicantForm
+    template_name = 'profiles/applicant_form.html'
+    success_url = reverse_lazy('profile')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['action'] = 'update'
+        return context
+
+    def get_success_url(self):
+        return reverse_lazy('profile', kwargs={'user_id': self.object.applicant.id})

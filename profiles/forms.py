@@ -1,18 +1,15 @@
-# from django import forms
-# from allauth.account.forms import SignupForm
+from django import forms
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
+from .models import Applicant
 
-# class CustomSignupForm(SignupForm):
-#     USER_TYPE_CHOICES = [
-#         ('applicant', 'Applicant'),
-#         ('employer', 'Employer'),
-#     ]
-#     user_type = forms.ChoiceField(choices=USER_TYPE_CHOICES, widget=forms.RadioSelect)
+class ApplicantForm(forms.ModelForm):
+    class Meta:
+        model = Applicant
+        fields = ['firstname', 'lastname', 'role', 'intro', 'address1', 'address2', 'city', 'postcode', 'skills', 'experience', 'profilepic']
 
-#     def save(self, request):
-#         user = super().save(request)
-#         user_type = self.cleaned_data['user_type']
-#         if user_type == 'applicant':
-#             ApplicantProfile.objects.create(applicant=user)
-#         elif user_type == 'employer':
-#             EmployerProfile.objects.create(employer=user)
-#         return user
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Update'))
