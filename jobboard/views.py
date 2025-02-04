@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from .models import Job, JobApplication
 from .forms import JobApplicationForm
 from django.core.paginator import Paginator
+from django.contrib import messages
 
 
 class HomePage(TemplateView):
@@ -57,6 +58,7 @@ class JobApplicationCreateView(CreateView):
     def form_valid(self, form):
         form.instance.applicant = Applicant.objects.get(user=self.request.user)
         form.instance.job = Job.objects.get(pk=self.kwargs['job_id'])
+        messages.success(self.request, 'Your application has been submitted successfully.')
         return super().form_valid(form)
 
     def get_success_url(self):

@@ -34,6 +34,14 @@ a:hover {
     background-color: #cbe7fc;
 }
 
+/* Alert messages */
+.alert-dismissable {
+    padding: 0.5rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    background-color: #959595;
+    opacity: 0.5;
+}
 
 /* Hero section */
 .hero {
