@@ -46,11 +46,15 @@
         </div>
     </div>
     <div class="row">
+        {% if user.is_authenticated and user == applicant.user %}
         <div class="col text-right p-3">
             <a href="{% url 'applicant_update' pk=applicant.id %}" class="btn btn-primary">Edit</a>
             <a class="btn btn-secondary" href="javascript:history.back()" aria-label="Cancel Edit and go back a page">Cancel</a>
         </div>
+        {% endif %}
+
     </div>
+    {% if user.is_authenticated and user == applicant.user %}
     <div class="row mt-4">
         <div class="col-12">
             <h3>Job Applications</h3>
@@ -78,5 +82,6 @@
             {% endif %}
         </div>
     </div>
+    {% endif %}
 </div>
 {% endblock %}
