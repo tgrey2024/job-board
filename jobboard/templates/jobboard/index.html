@@ -8,18 +8,17 @@
     <div class="container ms-auto">
         <div class="text-start">
             <h1>Next Stop: Your Dream Job</h1>
-            <!-- <p class="lead"></p>-->
             <a href="{% url 'account_signup' %}" class="btn btn-info" aria-label="Go to the Signup page">Sign Up <i class="fa-solid fa-user-plus"></i></a>
         </div>
     </div>
 </section>
 <!-- Applicants: Job Posts section -->
-<section id="job-posts" class="job-posts py-3">
+<section id="job-posts" class="job-posts py-4">
     <div class="container">
         <div class="row">
     
-            <!-- Blog Entries Column -->
-            <div class="col-12 mt-3 left">
+            <!-- Job listings Column -->
+            <div class="col-12 my-3 left">
                 <div class="row">
                     <h3 class="mb-3">Featured Job Listings</h3>
                     {% for job in jobs %}
@@ -34,56 +33,11 @@
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Employers: Applicants List section -->
-<section id="applicants" class="applicants py-3">
-    <div class="container">
-        <div class="row">
-    
-            <!-- Job Listings Column -->
-            <div class="col-12 mt-3 left">
-                <div class="row">
-                    <h3>Star Applicants</h3>
-                    <div class="col-md-4">
-                        {% include "profiles/applicant_list.html" %}
-                    </div>
-                    {% for post in post_list %}
-                    <div class="col-md-4">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="image-container">
-                                    {% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                                        alt="placeholder image">
-                                    {% else %}
-                                    <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
-                                    {% endif %}
-                                    <div class="image-flash">
-                                        <p class="author">Author: {{ post.author }}</p>
-                                    </div>
-                                </div>
-                                <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                    <h2 class="card-title">{{ post.title }}</h2>
-                                    <p class="card-text">{{ post.excerpt }}</p>
-                                </a>
-    
-                                <hr />
-                                <p class="card-text text-muted h6">{{ post.created_on}}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    {% if forloop.counter|divisibleby:3 %}
+                    {% if forloop.counter|divisibleby:6 %}
                 </div>
                 <div class="row">
                     {% endif %}
                     {% endfor %}
-    
                 </div>
             </div>
         </div>
@@ -91,10 +45,17 @@
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
                 {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <li class="page-item active"><a class="page-link">{{ num }}</a></li>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <li class="page-item"><a href="?page={{ num }}" class="page-link">{{ num }}</a></li>
+                    {% endif %}
+                {% endfor %}
                 {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
                 {% endif %}
             </ul>
         </nav>
@@ -102,6 +63,17 @@
     </div>
 </section>
 <!-- Employers: Applicants List section -->
+<section id="applicants" class="applicants py-3">
+    <div class="container">
+        <div class="row">
+            <h3>Star Applicants</h3>
+            <div class="col-md-4">
+                {% include "profiles/applicant_list.html" %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Employers: Employers List section
 <section id="employers" class="employers py-3">
     <div class="container">
         <div class="row">
@@ -111,7 +83,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- Testimonials -->
 <section id="testimonials" class="testimonials py-3">
     <div class="container">
@@ -119,18 +91,18 @@
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active text-center">
-                    <!-- <img src="{% static 'images/carousel1.png' %}" class="testimonial-img d-block mx-auto" alt="A grandad sharing his scrapbook with his two grand-daughters" data-bs-interval="12000"> -->
+                    <img src="{% static 'images/app4.webp' %}" class="testimonial-img d-block mx-auto" alt="Jo Smith" data-bs-interval="12000">
                     <blockquote class="blockquote">
                         <p class="testimonial-quote">"JobMart made my job search so much easier. I found my dream job within a week of signing up!"</p>
                 </div>
                 <div class="carousel-item text-center">
-                    <!-- <img src="{% static 'images/carousel2.png' %}" class="testimonial-img d-block mx-auto" alt="A patient laughing while sharing her scrapbook with a nurse" data-bs-interval="12000"> -->
+                    <img src="{% static 'images/app5.webp' %}" class="testimonial-img d-block mx-auto" alt="Hilary Mellini" data-bs-interval="12000">
                     <blockquote class="blockquote">
                         <p class="testimonial-quote">"Thanks to JobMart, I connected with top employers and landed a job that perfectly matches my skills."</p>
                     </blockquote>
                 </div>
                 <div class="carousel-item text-center">
-                    <!-- <img src="{% static 'images/carousel3.png' %}" class="testimonial-img d-block mx-auto" alt="A family member browsing through a scrapbook while holding hands with their loved one" data-bs-interval="12000"> -->
+                    <img src="{% static 'images/app6.webp' %}" class="testimonial-img d-block mx-auto" alt="Perry Bergman" data-bs-interval="12000">
                     <blockquote class="blockquote">
                             <p class="testimonial-quote">"JobMart is the best job search platform I've ever used. I highly recommend it to anyone looking for a job."</p>
                     </blockquote>

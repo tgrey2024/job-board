@@ -20,8 +20,3 @@ def create_profiles(sender, instance, created, **kwargs):
             experience="",
         )
 
-@receiver(post_save, sender=Employer)
-def set_default_is_charity(sender, instance, created, **kwargs):
-    if instance.is_charity is None:
-        instance.is_charity = False
-        instance.save()
