@@ -23,18 +23,18 @@
                 </div>
             </div>
             {% if applicant.email %}
-            <p>Email: {{ applicant.email }}</p>
+            <p><strong>Email:</strong> {{ applicant.email }}</p>
             {% endif %}
             {% if applicant.intro %}
                 <p>{{ applicant.intro | safe }}</p>
             {% endif %}
             {% if applicant.skills %}
-                <p>Skills: {{ applicant.skills | safe }}</p>
+                <p><strong>Skills:</strong> {{ applicant.skills | safe }}</p>
             {% endif %}
             {% if applicant.experience %}
-                <p>Experience: {{ applicant.experience | safe }}</p>
+                <p><strong>Experience:</strong> {{ applicant.experience | safe }}</p>
             {% endif %}
-            <p class="address-text">Address: {% if applicant.address1 %}{{ applicant.address1 }},{% endif %}</p>
+            <p class="address-text"><strong>Address:</strong> {% if applicant.address1 %}{{ applicant.address1 }},{% endif %}</p>
             {% if applicant.address2 %}
                 <p class="address-text">{{ applicant.address2 }},</p>
             {% endif %}
