@@ -6,6 +6,7 @@ from .models import Job
 from django.urls import reverse_lazy
 from .models import Job, JobApplication
 from .forms import JobApplicationForm
+from django.core.paginator import Paginator
 
 
 class HomePage(TemplateView):
@@ -18,7 +19,15 @@ class HomePage(TemplateView):
         context = super().get_context_data(**kwargs)
         context['employers'] = Employer.objects.all()
         context['applicants'] = Applicant.objects.all()
-        context['jobs'] = Job.objects.all()
+        job_list = Job.objects.all()
+        paginator = Paginator(job_list, 6)
+
+        page_number = self.request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
+        context['page_obj'] = page_obj
+        context['jobs'] = page_obj.object_list
+        context['is_paginated'] = page_obj.has_other_pages()
         return context
 
 

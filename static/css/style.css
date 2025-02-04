@@ -35,18 +35,6 @@ a:hover {
 }
 
 
-.light-bg {
-    background-color: #fff;
-}
-
-.dark-bg {
-    background-color: #445261;
-}
-
-.main-bg {
-    background-color: #F9FAFC;
-}
-
 /* Hero section */
 .hero {
     background-size: cover;
@@ -108,6 +96,10 @@ a:hover {
 
 #job-posts h3 {
     color: #094074;
+}
+
+#applicants ul{
+    list-style-type: none;
 }
 
 /* Employers section */
@@ -198,33 +190,15 @@ a:hover {
     position: relative;
 }
 
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
 
 .post-link {
     text-decoration: none;
-    color: #445261;
+    color: #094074;
 }
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: #188181;
 }
 
 .post-title {
@@ -289,4 +263,9 @@ a:hover {
 /* Profiles */
 .address-text {
     display: inline;
+}
+
+/* Footer */
+.dark-bg {
+    background-color: #445261;
 }

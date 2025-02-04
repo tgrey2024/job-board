@@ -5,10 +5,10 @@
     <h2>Applicant Profile</h2>
     <div class="row">
         <div class="col-4">
-            {% if applicant.profilepic %}
+            {% if applicant.lastname %}
             <img src="{{ applicant.profilepic.url }}" alt="{{ applicant.firstname }} {{ applicant.lastname }} profile picture" width="75%">
             {% else %}
-            <img src="{% static 'images/placeholder.jpg' %}" alt="Default profile picture" width="75%">
+            <img src="https://res.cloudinary.com/dciztrsmx/image/upload/v1738658416/yrejs9xiufff6xpoyfpa.jpg" alt="Default profile picture" width="75%">
             {% endif %}
         </div>
         <div class="col-8">
@@ -45,6 +45,12 @@
             <p class="text-end"><em>Updated on: {{ applicant.updated_on }}</em></p>
         </div>
     </div>
+    <div class="row">
+        <div class="col text-right p-3">
+            <a href="{% url 'applicant_update' pk=applicant.id %}" class="btn btn-primary">Edit</a>
+            <a class="btn btn-secondary" href="javascript:history.back()" aria-label="Cancel Edit and go back a page">Cancel</a>
+        </div>
+    </div>
     <div class="row mt-4">
         <div class="col-12">
             <h3>Job Applications</h3>
@@ -70,12 +76,6 @@
             {% else %}
             <p>No job applications found.</p>
             {% endif %}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col text-right p-3">
-            <a href="{% url 'applicant_update' pk=applicant.id %}" class="btn btn-primary">Edit</a>
-            <a class="btn btn-secondary" href="javascript:history.back()" aria-label="Cancel Edit and go back a page">Cancel</a>
         </div>
     </div>
 </div>
